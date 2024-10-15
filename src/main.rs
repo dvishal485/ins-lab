@@ -1,7 +1,7 @@
-mod playfair;
+mod playfair_cipher;
 mod text;
 
-use playfair::PlayFair;
+use playfair_cipher::PlayFair;
 use text::{EncryptionAlgorithm, Text};
 
 fn main() {
