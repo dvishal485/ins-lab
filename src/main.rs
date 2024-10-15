@@ -36,16 +36,22 @@ macro_rules! encrypt_decrypt {
     };
 }
 
+macro_rules! intro {
+    ($cipher: expr) => {
+        println!(
+            "{line}\n{cipher_name} Example\n{line}\n",
+            line = "-".repeat(50),
+            cipher_name = $cipher
+        );
+    };
+}
+
 mod caesar_cipher_example {
     use super::*;
     use crate::ciphers::CaesarCipher;
 
     pub fn example() {
-        println!(
-            "{line}\n{cipher_name} Example\n{line}\n",
-            line = "-".repeat(50),
-            cipher_name = "Casear Cipher"
-        );
+        intro!("Caesar Cipher");
 
         let cipher = CaesarCipher::new(3);
 
@@ -58,11 +64,7 @@ mod substituition_cipher_example {
     use crate::ciphers::SubstitutionCipher;
 
     pub fn example() {
-        println!(
-            "{line}\n{cipher_name} Example\n{line}\n",
-            line = "-".repeat(50),
-            cipher_name = "Substitution Cipher"
-        );
+        intro!("Substitution Cipher");
 
         let key = Text::from("QWERTYUIOPASDFGHJKLZXCVBNM");
         let cipher = SubstitutionCipher::new(&key);
@@ -76,11 +78,7 @@ mod playfair_cipher_example {
     use ciphers::PlayFair;
 
     pub fn example() {
-        println!(
-            "{line}\n{cipher_name} Example\n{line}\n",
-            line = "-".repeat(50),
-            cipher_name = "Playfair Cipher"
-        );
+        intro!("Playfair Cipher");
 
         let key = Text::from("ninjakill");
         println!("Key: {}", key);
@@ -97,11 +95,7 @@ mod hill_cipher_example {
     use ciphers::HillCipher;
 
     pub fn example() {
-        println!(
-            "{line}\n{cipher_name} Example\n{line}\n",
-            line = "-".repeat(50),
-            cipher_name = "Hill Cipher"
-        );
+        intro!("Hill Cipher");
 
         let key = Text::from("ninjakill");
         let cipher = HillCipher::new(&key);
@@ -117,11 +111,7 @@ mod rsa_example {
     use ciphers::rsa::{ArgumentsRSA, RSA};
 
     pub fn example() {
-        println!(
-            "{line}\n{cipher_name} Example\n{line}\n",
-            line = "-".repeat(50),
-            cipher_name = "RSA"
-        );
+        intro!("RSA");
 
         let args = ArgumentsRSA {
             p: 317,
@@ -144,11 +134,7 @@ mod sha1_example {
     use ciphers::sha::{SHA, SHA1};
 
     pub fn example() {
-        println!(
-            "{line}\n{cipher_name} Example\n{line}\n",
-            line = "-".repeat(50),
-            cipher_name = "SHA1"
-        );
+        intro!("SHA1");
 
         let text = Text::from(EXAMPLE_PLAIN_TEXT);
         println!("Text: {}", text);
@@ -163,11 +149,7 @@ mod sha256_example {
     use ciphers::sha::{SHA, SHA256};
 
     pub fn example() {
-        println!(
-            "{line}\n{cipher_name} Example\n{line}\n",
-            line = "-".repeat(50),
-            cipher_name = "SHA1"
-        );
+        intro!("SHA256");
 
         let text = Text::from(EXAMPLE_PLAIN_TEXT);
         println!("Text: {}", text);
@@ -182,11 +164,7 @@ mod digital_signature_example {
     use ciphers::{sha::SHA256, DigitalSignature, HillCipher};
 
     pub fn example() {
-        println!(
-            "{line}\n{cipher_name} Example\n{line}\n",
-            line = "-".repeat(50),
-            cipher_name = "Digital Signature"
-        );
+        intro!("Digital Signature");
 
         let key = Text::from("ninjakill");
         let cipher = HillCipher::new(&key);
