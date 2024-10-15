@@ -91,7 +91,7 @@ impl EncryptionAlgorithm for HillCipher {
     fn encrypt(&self, plain_text: &Text) -> Text {
         let plain_text = plain_text
             .chars()
-            .map(|text| (text as u8 - 'A' as u8) as i32)
+            .map(|text| (text as u8 - b'A') as i32)
             .collect::<Vec<_>>();
 
         let plain_text = plain_text
@@ -111,8 +111,7 @@ impl EncryptionAlgorithm for HillCipher {
             .iter()
             .map(|text| self.key.clone().dot(text))
             .map(|text| text.mapv(|x| x.rem_euclid(26)))
-            .map(|text| text.mapv(|x| (x + 'A' as i32) as u8 as char))
-            .flatten()
+            .flat_map(|text| text.mapv(|x| (x + 'A' as i32) as u8 as char))
             .collect::<String>()
             .into()
     }
@@ -125,7 +124,7 @@ impl EncryptionAlgorithm for HillCipher {
 
         let cipher_text = cipher_text
             .chars()
-            .map(|text| (text as u8 - 'A' as u8) as i32)
+            .map(|text| (text as u8 - b'A') as i32)
             .collect::<Vec<_>>()
             .chunks(3)
             .map(|text| Array1::from_iter(text.iter().cloned()))
@@ -135,8 +134,7 @@ impl EncryptionAlgorithm for HillCipher {
             .iter()
             .map(|text| self.inverse_key.clone().dot(text))
             .map(|text| text.mapv(|x| x.rem_euclid(26)))
-            .map(|text| text.mapv(|x| (x + 'A' as i32) as u8 as char))
-            .flatten()
+            .flat_map(|text| text.mapv(|x| (x + 'A' as i32) as u8 as char))
             .collect::<String>()
             .into()
     }

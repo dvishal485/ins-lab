@@ -16,7 +16,7 @@ impl SubstitutionCipher {
 
         key.chars()
             .enumerate()
-            .map(|(idx, c)| ((idx as u8 + 'A' as u8) as char, c as usize - 'A' as usize))
+            .map(|(idx, c)| ((idx as u8 + b'A') as char, c as usize - 'A' as usize))
             .for_each(|(idx, c)| decrypt_shift[c] = idx);
 
         let key: Vec<char> = key.chars().collect();
