@@ -179,11 +179,7 @@ mod sha256_example {
 
 mod digital_signature_example {
     use super::*;
-    use ciphers::{
-        rsa::{ArgumentsRSA, RSA},
-        sha::SHA256,
-        DigitalSignature, HillCipher,
-    };
+    use ciphers::{sha::SHA256, DigitalSignature, HillCipher};
 
     pub fn example() {
         println!(
