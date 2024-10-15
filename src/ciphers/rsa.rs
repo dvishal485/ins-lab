@@ -1,6 +1,6 @@
 use crate::meth::{gcd, mod_pow};
 
-use super::{EncryptionAlgorithm, Text};
+use crate::{EncryptionAlgorithm, Text};
 
 pub struct RSA {
     private_key: u64,

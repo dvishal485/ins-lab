@@ -1,4 +1,4 @@
-use super::{EncryptionAlgorithm, Text};
+use crate::{EncryptionAlgorithm, Text};
 use std::{collections::HashMap, ops::Deref};
 
 pub struct PlayFair {

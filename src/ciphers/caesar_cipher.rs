@@ -1,4 +1,4 @@
-use super::{EncryptionAlgorithm, Text};
+use crate::{EncryptionAlgorithm, Text};
 
 pub struct CaesarCipher {
     shift: usize,

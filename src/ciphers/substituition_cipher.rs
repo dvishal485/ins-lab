@@ -1,4 +1,4 @@
-use super::{EncryptionAlgorithm, Text};
+use crate::{EncryptionAlgorithm, Text};
 
 pub struct SubstitutionCipher {
     decrypt_shift: Vec<char>,

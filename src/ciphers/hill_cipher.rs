@@ -1,4 +1,4 @@
-use super::{EncryptionAlgorithm, Text};
+use crate::{EncryptionAlgorithm, Text};
 use ndarray::{Array1, Array2};
 
 pub struct HillCipher {

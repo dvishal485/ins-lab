@@ -1,9 +1,5 @@
-pub mod caesar_cipher;
-pub mod hill_cipher;
+pub mod ciphers;
 pub mod meth;
-pub mod playfair_cipher;
-pub mod rsa;
-pub mod substituition_cipher;
 pub mod text;
 
 pub use text::{EncryptionAlgorithm, Text};
@@ -39,7 +35,7 @@ macro_rules! encrypt_decrypt {
 
 mod caesar_cipher_example {
     use super::*;
-    use crate::caesar_cipher::CaesarCipher;
+    use crate::ciphers::CaesarCipher;
 
     pub fn example() {
         println!(
@@ -56,7 +52,7 @@ mod caesar_cipher_example {
 
 mod substituition_cipher_example {
     use super::*;
-    use crate::substituition_cipher::SubstitutionCipher;
+    use crate::ciphers::SubstitutionCipher;
 
     pub fn example() {
         println!(
@@ -74,7 +70,7 @@ mod substituition_cipher_example {
 
 mod playfair_cipher_example {
     use super::*;
-    use playfair_cipher::PlayFair;
+    use ciphers::PlayFair;
 
     pub fn example() {
         println!(
@@ -95,7 +91,7 @@ mod playfair_cipher_example {
 
 mod hill_cipher_example {
     use super::*;
-    use hill_cipher::HillCipher;
+    use ciphers::HillCipher;
 
     pub fn example() {
         println!(
@@ -115,7 +111,7 @@ mod hill_cipher_example {
 
 mod rsa_example {
     use super::*;
-    use rsa::{ArgumentsRSA, RSA};
+    use ciphers::rsa::{ArgumentsRSA, RSA};
 
     pub fn example() {
         println!(
