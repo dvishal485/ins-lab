@@ -8,7 +8,7 @@ pub struct SHA1 {}
 pub struct SHA256 {}
 
 impl SHA for SHA1 {
-    fn hash(text: &Text) -> Text {
+    fn hash(text: &Text) -> String {
         let mut hasher = Sha1::new();
         hasher.input_str(text);
         hasher.result_str().into()
@@ -16,7 +16,7 @@ impl SHA for SHA1 {
 }
 
 impl SHA for SHA256 {
-    fn hash(text: &Text) -> Text {
+    fn hash(text: &Text) -> String {
         let mut hasher = Sha256::new();
         hasher.input_str(text);
         hasher.result_str().into()
@@ -24,5 +24,5 @@ impl SHA for SHA256 {
 }
 
 pub trait SHA {
-    fn hash(text: &Text) -> Text;
+    fn hash(text: &Text) -> String;
 }

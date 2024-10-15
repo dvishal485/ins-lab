@@ -37,7 +37,7 @@ where
 {
     fn encrypt(&self, plain_text: &Text) -> Text {
         let hash = K::hash(plain_text);
-        let signature: String = self.cipher.encrypt(&hash).into();
+        let signature: String = self.cipher.encrypt(&hash.into()).into();
 
         let mut encrypted_data = self.cipher.encrypt(plain_text);
 
@@ -57,7 +57,7 @@ where
         let decrypted_data = self.cipher.decrypt(&Text::from(encrypted_data));
         let hash = self.cipher.decrypt(&Text::from(signature));
 
-        if hash != K::hash(&decrypted_data) {
+        if hash != K::hash(&decrypted_data.clone().into()).into() {
             eprintln!("Signature verification failed!");
         } else {
             println!("Signature verification success!");
