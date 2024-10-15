@@ -23,7 +23,7 @@ impl From<String> for Text {
 
 impl Into<String> for Text {
     fn into(self) -> String {
-        if self.text == "" {
+        if self.text.is_empty() {
             self.number.to_string()
         } else {
             self.text
