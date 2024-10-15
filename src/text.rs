@@ -42,11 +42,6 @@ macro_rules! impl_from {
                     }
                 }
             }
-            impl Into<$t> for Text {
-                fn into(self) -> $t {
-                    self.number as $t
-                }
-            }
         )*
     };
 }

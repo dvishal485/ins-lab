@@ -16,7 +16,7 @@ trait Mod26 {
 
 impl Mod26 for Array2<i32> {
     fn matrix_determinant(&self) -> i32 {
-        assert!(self.shape() == &[3, 3], "Matrix must be 3x3");
+        assert!(self.shape() == [3, 3], "Matrix must be 3x3");
         let e = |i: usize, j: usize| (self.get((i, j)).unwrap());
 
         (e(0, 0) * (e(1, 1) * e(2, 2) - e(2, 1) * e(1, 2))
@@ -98,8 +98,7 @@ impl EncryptionAlgorithm for HillCipher {
             .chunks(3)
             .map(|text| {
                 Array1::from_vec(
-                    text.to_vec()
-                        .into_iter()
+                    text.iter().copied()
                         .chain(std::iter::repeat(0))
                         .take(3)
                         .collect::<Vec<i32>>(),
