@@ -1,5 +1,3 @@
-use core::num;
-
 use crate::meth::{gcd, mod_pow};
 
 use super::{EncryptionAlgorithm, Text};
