@@ -42,7 +42,7 @@ impl PlayFair {
             if is_encrypt {
                 (i + 1) % 5
             } else {
-                (i + 4) % 5 // (i - 1) % 5
+                (i + (-1 as i32).rem_euclid(5) as usize) % 5 // (i - 1) % 5
             }
         };
         text.chars()
