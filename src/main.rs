@@ -124,14 +124,14 @@ mod rsa_example {
             cipher_name = "RSA"
         );
 
-        let args = ArgumentsRSA { p: 3, q: 11, e: 7 };
+        let args = ArgumentsRSA { p: 317, q: 11, e: 17 };
         println!("{:?}\n", args);
 
         let cipher = RSA::new(args);
 
         cipher.display_keys();
         println!();
-        
+
         encrypt_decrypt!(cipher, EXAMPLE_PLAIN_NUMBER);
     }
 }
