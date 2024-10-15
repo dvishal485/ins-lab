@@ -8,9 +8,24 @@ use text::{EncryptionAlgorithm, Text};
 const EXAMPLE_PLAIN_TEXT: &str = "Hello beautiful";
 
 fn main() {
-    // caesar_cipher_example::example();
+    caesar_cipher_example::example();
     substituition_cipher_example::example();
-    // playfair_cipher_example::example();
+    playfair_cipher_example::example();
+}
+
+macro_rules! encrypt_decrypt {
+    ($cipher:ident) => {
+        let plain_text = Text::from(EXAMPLE_PLAIN_TEXT);
+        println!("Plain text: {}", plain_text);
+
+        let cipher_text = $cipher.encrypt(&plain_text);
+        println!("Cipher text: {}", cipher_text);
+
+        let decrypted_text = $cipher.decrypt(&cipher_text);
+        println!("Decrypted text: {}", decrypted_text);
+
+        println!();
+    };
 }
 
 mod caesar_cipher_example {
@@ -26,14 +41,7 @@ mod caesar_cipher_example {
 
         let cipher = CaesarCipher::new(3);
 
-        let plain_text = Text::from(EXAMPLE_PLAIN_TEXT);
-        println!("Plain text: {}", plain_text);
-
-        let cipher_text = cipher.encrypt(&plain_text);
-        println!("Cipher text: {}", cipher_text);
-
-        let decrypted_text = cipher.decrypt(&cipher_text);
-        println!("Decrypted text: {}", decrypted_text);
+        encrypt_decrypt!(cipher);
     }
 }
 
@@ -51,14 +59,7 @@ mod substituition_cipher_example {
         let key = Text::from("QWERTYUIOPASDFGHJKLZXCVBNM");
         let cipher = SubstitutionCipher::new(&key);
 
-        let plain_text = Text::from(EXAMPLE_PLAIN_TEXT);
-        println!("Plain text: {}", plain_text);
-
-        let cipher_text = cipher.encrypt(&plain_text);
-        println!("Cipher text: {}", cipher_text);
-
-        let decrypted_text = cipher.decrypt(&cipher_text);
-        println!("Decrypted text: {}", decrypted_text);
+        encrypt_decrypt!(cipher);
     }
 }
 
@@ -76,16 +77,9 @@ mod playfair_cipher_example {
         let key = Text::from("watermelon");
         println!("Key: {}", key);
 
-        let playfair = PlayFair::new(key);
-        playfair.display_matrix();
+        let cipher = PlayFair::new(key);
+        cipher.display_matrix();
 
-        let plain_text = Text::from(EXAMPLE_PLAIN_TEXT);
-        println!("Plain text: {}", plain_text);
-
-        let cipher_text = playfair.encrypt(&plain_text);
-        println!("Cipher text: {}", cipher_text);
-
-        let decrypted_text = playfair.decrypt(&cipher_text);
-        println!("Decrypted text: {}", decrypted_text);
+        encrypt_decrypt!(cipher);
     }
 }
