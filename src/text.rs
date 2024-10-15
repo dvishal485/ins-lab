@@ -3,8 +3,10 @@ use std::ops::{Deref, DerefMut};
 const START_CHARACTER: char = 'A';
 const END_CHARACTER: char = 'Z';
 
-#[derive(Debug)]
-pub struct Text(pub String);
+pub struct Text {
+    pub text: String,
+    pub number: u64,
+}
 
 impl From<&str> for Text {
     fn from(s: &str) -> Self {
@@ -18,14 +20,44 @@ impl From<String> for Text {
     }
 }
 
+impl Into<String> for Text {
+    fn into(self) -> String {
+        self.text
+    }
+}
+
+macro_rules! impl_from {
+    ($($t:ty),*) => {
+        $(
+            impl From<$t> for Text {
+                fn from(value: $t) -> Self {
+                    Text {
+                        text: String::new(),
+                        number: value as u64,
+                    }
+                }
+            }
+            impl Into<$t> for Text {
+                fn into(self) -> $t {
+                    self.number as $t
+                }
+            }
+        )*
+    };
+}
+
+impl_from!(i8, i16, i32, i64, u8, u16, u32, u64);
+
 impl Text {
     pub fn new(text: &str) -> Self {
-        Text(
-            text.to_uppercase()
+        Text {
+            text: text
+                .to_uppercase()
                 .chars()
                 .filter(|&s| s >= START_CHARACTER && s <= END_CHARACTER)
                 .collect(),
-        )
+            number: 0,
+        }
     }
 
     pub fn unique(&self) -> Self {
@@ -47,20 +79,20 @@ impl Text {
                 }
             })
             .collect();
-        Text(text)
+        Text { text, number: 0 }
     }
 }
 
 impl Deref for Text {
     type Target = String;
     fn deref(&self) -> &Self::Target {
-        &self.0
+        &self.text
     }
 }
 
 impl DerefMut for Text {
     fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
+        &mut self.text
     }
 }
 
@@ -71,6 +103,10 @@ pub trait EncryptionAlgorithm {
 
 impl std::fmt::Display for Text {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(f, "{}", self.0)
+        if self.text.is_empty() {
+            write!(f, "{}", self.number)
+        } else {
+            write!(f, "{}", self.text)
+        }
     }
 }

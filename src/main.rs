@@ -1,18 +1,22 @@
-mod caesar_cipher;
-mod hill_cipher;
-mod playfair_cipher;
-mod substituition_cipher;
-mod text;
+pub mod caesar_cipher;
+pub mod hill_cipher;
+pub mod meth;
+pub mod playfair_cipher;
+pub mod rsa;
+pub mod substituition_cipher;
+pub mod text;
 
-use text::{EncryptionAlgorithm, Text};
+pub use text::{EncryptionAlgorithm, Text};
 
 const EXAMPLE_PLAIN_TEXT: &str = "Hello beautifull";
+const EXAMPLE_PLAIN_NUMBER: i64 = 88;
 
 fn main() {
     caesar_cipher_example::example();
     substituition_cipher_example::example();
     playfair_cipher_example::example();
     hill_cipher_example::example();
+    rsa_example::example();
 }
 
 macro_rules! encrypt_decrypt {
@@ -90,9 +94,8 @@ mod playfair_cipher_example {
 }
 
 mod hill_cipher_example {
-    use hill_cipher::HillCipher;
-
     use super::*;
+    use hill_cipher::HillCipher;
 
     pub fn example() {
         println!(
@@ -107,5 +110,28 @@ mod hill_cipher_example {
         cipher.display_matrix();
 
         encrypt_decrypt!(cipher);
+    }
+}
+
+mod rsa_example {
+    use super::*;
+    use rsa::{ArgumentsRSA, RSA};
+
+    pub fn example() {
+        println!(
+            "{line}\n{cipher_name} Example\n{line}\n",
+            line = "-".repeat(50),
+            cipher_name = "RSA"
+        );
+
+        let args = ArgumentsRSA { p: 3, q: 11, e: 7 };
+        println!("{:?}\n", args);
+
+        let cipher = RSA::new(args);
+
+        cipher.display_keys();
+        println!();
+        
+        encrypt_decrypt!(cipher, EXAMPLE_PLAIN_NUMBER);
     }
 }

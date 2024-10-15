@@ -1,5 +1,5 @@
 use super::{EncryptionAlgorithm, Text};
-use std::collections::HashMap;
+use std::{collections::HashMap, ops::Deref};
 
 pub struct PlayFair {
     matrix: Vec<Vec<char>>,
@@ -110,7 +110,7 @@ impl EncryptionAlgorithm for PlayFair {
             "Cipher text length must be even"
         );
 
-        let mut decrypted_text = self.transform(cipher_text.0.to_owned(), false);
+        let mut decrypted_text = self.transform(cipher_text.deref().into(), false);
         decrypted_text.retain(|s| s != 'X');
         decrypted_text.into()
     }
