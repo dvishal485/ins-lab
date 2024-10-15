@@ -3,6 +3,7 @@ use std::ops::{Deref, DerefMut};
 const START_CHARACTER: char = 'A';
 const END_CHARACTER: char = 'Z';
 
+#[derive(PartialEq)]
 pub struct Text {
     pub text: String,
     pub number: u64,
@@ -22,7 +23,11 @@ impl From<String> for Text {
 
 impl Into<String> for Text {
     fn into(self) -> String {
-        self.text
+        if self.text == "" {
+            self.number.to_string()
+        } else {
+            self.text
+        }
     }
 }
 
@@ -50,14 +55,25 @@ impl_from!(i8, i16, i32, i64, u8, u16, u32, u64);
 
 impl Text {
     pub fn new(text: &str) -> Self {
-        Text {
-            text: text
-                .to_uppercase()
-                .chars()
-                .filter(|&s| s >= START_CHARACTER && s <= END_CHARACTER)
-                .collect(),
-            number: 0,
+        let text: String = text
+            .to_uppercase()
+            .chars()
+            .filter(|&s| s >= START_CHARACTER && s <= END_CHARACTER)
+            .collect();
+
+        if text.is_empty() {
+            // maybe it's a number
+            if let Ok(number) = text.parse::<u64>() {
+                return Text {
+                    text: String::new(),
+                    number,
+                };
+            }
+
+            panic!("Invalid text provided");
         }
+
+        Text { text, number: 0 }
     }
 
     pub fn unique(&self) -> Self {
