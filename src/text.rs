@@ -21,12 +21,12 @@ impl From<String> for Text {
     }
 }
 
-impl Into<String> for Text {
-    fn into(self) -> String {
-        if self.text.is_empty() {
-            self.number.to_string()
+impl From<Text> for String {
+    fn from(val: Text) -> Self {
+        if val.text.is_empty() {
+            val.number.to_string()
         } else {
-            self.text
+            val.text
         }
     }
 }

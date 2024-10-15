@@ -42,14 +42,14 @@ impl RSA {
 impl EncryptionAlgorithm for RSA {
     fn encrypt(&self, plain_text: &Text) -> Text {
         let num = plain_text.number;
-        let cipher_number = mod_pow(num as u64, self.public_key, self.n);
+        let cipher_number = mod_pow(num, self.public_key, self.n);
 
         Text::from(cipher_number)
     }
 
     fn decrypt(&self, cipher_text: &Text) -> Text {
         let num = cipher_text.number;
-        let plain_number = mod_pow(num as u64, self.private_key, self.n);
+        let plain_number = mod_pow(num, self.private_key, self.n);
 
         Text::from(plain_number)
     }
