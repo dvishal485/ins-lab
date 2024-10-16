@@ -15,6 +15,12 @@ impl From<&str> for Text {
     }
 }
 
+impl From<char> for Text {
+    fn from(s: char) -> Self {
+        Text::new(&s.to_string())
+    }
+}
+
 impl From<String> for Text {
     fn from(s: String) -> Self {
         Text::new(&s)

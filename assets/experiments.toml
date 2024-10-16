@@ -16,8 +16,16 @@ Monoalphabetic ciphers rely on substituting each letter of the plaintext with an
 
 In this experiment, both encryption and decryption follow the same principle, substituting letters based on a predetermined mapping.
 """
-program = ["examples/substituition_cipher.rs", "src/ciphers/substituition_cipher.rs"]
-output = [["Substituition Cipher Example", "assets/images/substituition_cipher.png"]]
+program = [
+    "examples/substituition_cipher.rs",
+    "src/ciphers/substituition_cipher.rs",
+]
+output = [
+    [
+        "Substituition Cipher Example",
+        "assets/images/substituition_cipher.png",
+    ],
+]
 conclusion = "Monoalphabetic ciphers offer greater security but are still susceptible to frequency analysis."
 
 [experiment3]
@@ -38,8 +46,8 @@ Polyalphabetic ciphers, such as the Vigenère cipher, use multiple substitution 
 
 Polyalphabetic ciphers offer better security than monoalphabetic ciphers, as the same letter in plaintext can be encrypted to different letters in ciphertext.
 """
-program = []
-output = []
+program = ["examples/vigenere_cipher.rs", "src/ciphers/vigenere_cipher.rs"]
+output = [["Vigenère Cipher Example", "assets/images/vigenere_cipher.png"]]
 conclusion = "Polyalphabetic ciphers reduce the risk of frequency analysis by using multiple substitution alphabets."
 
 [experiment5]
@@ -94,7 +102,16 @@ SHA-1 (Secure Hash Algorithm 1) is a cryptographic hash function that produces a
 This experiment demonstrates the generation of a cryptographic hash using SHA-1.
 """
 program = ["examples/sha1.rs", "examples/sha256.rs", "src/ciphers/sha.rs"]
-output = [["SHA1 Hashing Example", "assets/images/sha1.png"], ["SHA256 Hashing Example", "assets/images/sha256.png"]]
+output = [
+    [
+        "SHA1 Hashing Example",
+        "assets/images/sha1.png",
+    ],
+    [
+        "SHA256 Hashing Example",
+        "assets/images/sha256.png",
+    ],
+]
 conclusion = "SHA-1 hash generation is fundamental but now insecure due to vulnerabilities."
 
 [experiment10]
