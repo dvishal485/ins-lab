@@ -17,7 +17,9 @@
   #align(
     center,
     [
-      = #smallcaps("Information and Network Security")
+      #heading(outlined: false)[ 
+        #smallcaps("Information and Network Security")
+      ]
 
       #v(1cm)
 

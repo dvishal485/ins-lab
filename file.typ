@@ -31,7 +31,7 @@
   set text(size: 11pt)
   let code = read(filename)
   line(length: 100%)
-  pad(left:0.25cm)[
+  pad(left: 0.25cm)[
     #raw(code, block: true, lang: filename.split(".").at(-1))
   ]
 }
@@ -51,13 +51,13 @@
     === #code
     #codeblock(code)
   ]
-  
+
   #box(width: 100%)[
     == Output
 
     #for fig in data.output [
       #figure(
-        image(fig.at(1), height: 25%, fit:"contain"),
+        image(fig.at(1), height: 25%, fit: "contain"),
         caption: fig.at(0),
         supplement: none,
       )
@@ -71,6 +71,8 @@
   ]
 ]
 
-#for (i, data) in experiments.values().enumerate() {
-  [#experiment(i + 1, data)]
+#let sorted_list = experiments.keys().map(n => int(n.split("experiment").at(1)))
+
+#for (i, data) in sorted_list.enumerate() {
+  [#experiment(i + 1, experiments.at("experiment" + str(data)))]
 }
