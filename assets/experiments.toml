@@ -1,0 +1,109 @@
+[experiment1]
+aim = "To implement Caesar cipher encryption."
+theory = """
+The Caesar cipher is one of the simplest encryption techniques, where each letter in the plaintext is shifted by a certain number of positions in the alphabet. The shift value is predetermined and acts as the key for encryption and decryption. Although easy to implement, Caesar cipher is vulnerable to brute-force attacks because of the limited number of possible shifts (25).
+
+In this experiment, the encryption is done by shifting characters, and decryption is done by reversing the shift. This basic substitution cipher demonstrates the fundamentals of classical encryption techniques.
+"""
+program = ["src/examples/caesar_cipher.rs", "src/ciphers/caesar_cipher.rs"]
+output = []
+conclusion = "Caesar cipher demonstrates simple substitution encryption but is vulnerable to brute-force attacks."
+
+[experiment2]
+aim = "To implement Monoalphabetic decryption. Encrypting and Decrypting works exactly the same for all monoalphabetic ciphers."
+theory = """
+Monoalphabetic ciphers rely on substituting each letter of the plaintext with another letter from the same alphabet. Unlike Caesar cipher, where the shift is fixed, monoalphabetic ciphers use a randomly generated substitution alphabet. This method is more secure than Caesar cipher, as it has a significantly larger key space, making brute-force attacks more difficult.
+
+In this experiment, both encryption and decryption follow the same principle, substituting letters based on a predetermined mapping.
+"""
+program = ["src/examples/substituition_cipher.rs", "src/ciphers/substituition_cipher.rs"]
+output = []
+conclusion = "Monoalphabetic ciphers offer greater security but are still susceptible to frequency analysis."
+
+[experiment3]
+aim = "To implement Play fair cipher encryption-decryption."
+theory = """
+The Playfair cipher is a digraph substitution cipher that encrypts pairs of letters instead of single letters, providing more security than monoalphabetic ciphers. It uses a 5x5 matrix of letters as the key for encryption and decryption. Letters are paired, and specific rules based on the matrix are followed to encrypt or decrypt each digraph.
+
+Playfair cipher is more resistant to frequency analysis due to its digraph approach, making it more secure than simple monoalphabetic ciphers.
+"""
+program = ["src/examples/playfair_cipher.rs", "src/ciphers/playfair_cipher.rs"]
+output = []
+conclusion = "Playfair cipher provides increased security by encrypting letter pairs instead of single characters."
+
+[experiment4]
+aim = "To implement Polyalphabetic cipher encryption decryption."
+theory = """
+Polyalphabetic ciphers, such as the Vigenère cipher, use multiple substitution alphabets to encrypt the plaintext. Instead of using a single substitution alphabet, the key consists of a repeated sequence of letters, where each letter in the key corresponds to a shift value. This method provides more complexity, reducing the effectiveness of frequency analysis.
+
+Polyalphabetic ciphers offer better security than monoalphabetic ciphers, as the same letter in plaintext can be encrypted to different letters in ciphertext.
+"""
+program = []
+output = []
+conclusion = "Polyalphabetic ciphers reduce the risk of frequency analysis by using multiple substitution alphabets."
+
+[experiment5]
+aim = "To implement Hill-cipher encryption decryption."
+theory = """
+The Hill cipher is a polygraphic cipher based on linear algebra. It encrypts blocks of letters using matrix multiplication over a modulo system. A matrix of a given size (key matrix) is multiplied with a vector representing the plaintext characters, resulting in the ciphertext. Decryption requires the inverse of the key matrix.
+
+The Hill cipher provides strong encryption by mixing multiple characters together, but key management and matrix inversion can be challenging.
+"""
+program = ["src/examples/substituition_cipher.rs", "src/ciphers/substituition_cipher.rs"]
+output = []
+conclusion = "Hill cipher strengthens encryption by combining characters through matrix multiplication."
+
+[experiment6]
+aim = "To implement S-DES sub key Generation."
+theory = """
+S-DES (Simplified DES) is a reduced version of the Data Encryption Standard (DES) designed to introduce the basic principles of DES encryption. The encryption process involves creating subkeys from an initial 10-bit key through permutation and shifting. These subkeys are used in the encryption rounds for secure data transformation.
+
+This experiment focuses on generating these subkeys, which are critical for the encryption process.
+"""
+program = []
+output = []
+conclusion = "Subkey generation in S-DES is crucial for secure encryption in DES-like algorithms."
+
+[experiment7]
+aim = "To implement Diffie-Hellman key exchange algorithm."
+theory = """
+The Diffie-Hellman key exchange is a method used to securely share cryptographic keys over a public channel. It enables two parties to generate a shared secret key without transmitting the key itself. The algorithm is based on the difficulty of computing discrete logarithms in modular arithmetic, which forms the basis of its security.
+
+Diffie-Hellman is widely used in modern cryptography for secure key exchange, laying the foundation for secure communications.
+"""
+program = []
+output = []
+conclusion = "Diffie-Hellman key exchange allows secure key generation over public channels."
+
+[experiment8]
+aim = "To implement RSA encryption-decryption."
+theory = """
+RSA is a widely used asymmetric encryption algorithm that relies on the mathematical properties of prime numbers. The algorithm involves generating a pair of keys: a public key for encryption and a private key for decryption. RSA's security is based on the difficulty of factoring large prime numbers.
+
+RSA is commonly used for secure data transmission, digital signatures, and other cryptographic applications.
+"""
+program = ["src/examples/substituition_cipher.rs", "src/ciphers/substituition_cipher.rs"]
+output = []
+conclusion = "RSA ensures secure communication through public-key encryption."
+
+[experiment9]
+aim = "Write a program to generate SHA-1 hash."
+theory = """
+SHA-1 (Secure Hash Algorithm 1) is a cryptographic hash function that produces a 160-bit hash value from input data. Hash functions are used in many security applications, including digital signatures, message integrity checks, and password storage. SHA-1 is now considered insecure due to vulnerabilities, but it laid the foundation for more secure hashing algorithms like SHA-256.
+
+This experiment demonstrates the generation of a cryptographic hash using SHA-1.
+"""
+program = ["src/examples/sha1.rs", "src/ciphers/sha.rs"]
+output = []
+conclusion = "SHA-1 hash generation is fundamental but now insecure due to vulnerabilities."
+
+[experiment10]
+aim = "Implement a digital signature algorithm."
+theory = """
+Digital signatures are a cryptographic method used to verify the authenticity and integrity of a message or document. They are based on asymmetric encryption, where a private key is used to sign a message, and a public key is used to verify the signature. Digital signatures provide non-repudiation, ensuring that the sender cannot deny sending the message.
+
+This experiment focuses on implementing a digital signature scheme, critical for secure electronic communications.
+"""
+program = ["src/examples/digital_signature.rs", "src/ciphers/digital_signature.rs"]
+output = []
+conclusion = "Digital signatures verify the authenticity and integrity of messages."
