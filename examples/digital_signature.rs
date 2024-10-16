@@ -1,9 +1,9 @@
-use examples::EXAMPLE_PLAIN_TEXT;
+use ins_lab::ciphers::{sha::SHA256, DigitalSignature, HillCipher};
+use ins_lab::{intro, Text};
 
-use crate::ciphers::{sha::SHA256, DigitalSignature, HillCipher};
-use crate::*;
+pub const EXAMPLE_PLAIN_TEXT: &str = "hello cute planet";
 
-pub fn example() {
+pub fn main() {
     intro!("Digital Signature");
 
     let key = Text::from("ninjakill");
