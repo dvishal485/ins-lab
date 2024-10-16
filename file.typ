@@ -1,11 +1,14 @@
 #import "assets/front_page.typ": front_page
 
+#let file_data = toml("assets/experiments.toml")
+
 #set page(
   paper: "a4",
   number-align: center,
   margin: (left: 1.7cm, y: 1.27cm, right: (1.27cm * 2 - 1.27cm)),
   footer: text(size: 10pt)[
-    Vishal Das
+    #file_data.info.student
+    #if file_data.info.roll_number.len() > 0 [ (#file_data.info.roll_number) ]
     #h(1fr)
     _#context counter(page).get().at(0)_
   ],
@@ -16,7 +19,16 @@
   ),
 )
 
-#front_page
+#front_page(
+  student_name: file_data.info.student,
+  subject_name: file_data.info.subject_name,
+  teacher_name: file_data.info.professor_name, 
+  file_heading: file_data.info.file_heading, 
+  logo: file_data.info.logo,
+  college_name: file_data.info.college.name, 
+  college_address: file_data.info.college.address,
+  department: file_data.info.college.department
+)
 
 #set text(
   font: "STIX Two Text",
@@ -34,8 +46,6 @@
 #outline(indent: 0.6cm)
 
 #set heading(numbering: none)
-
-#let experiments = toml("assets/experiments.toml")
 
 #let codeblock(filename) = {
   set text(size: 11pt)
@@ -83,8 +93,8 @@
   ]
 ]
 
-#let sorted_list = experiments.keys().map(n => int(n.split("experiment").at(1)))
+#let exp_list = file_data.keys().filter(n => n.starts-with("experiment")).map(n => int(n.split("experiment").at(1)))
 
-#for (i, data) in sorted_list.enumerate() {
-  [#experiment(i + 1, experiments.at("experiment" + str(data)))]
+#for (i, data) in exp_list.enumerate() {
+  [#experiment(i + 1, file_data.at("experiment" + str(data)))]
 }

@@ -1,4 +1,4 @@
-#let front_page = [
+#let front_page(student_name: "John Doe", subject_name: "INS", teacher_name: "Professor", file_heading: "Lab File", logo: "image.png" , college_name : "College", college_address: "India", department: "Department of Computer Science") = [
   #set page(
     paper: "a4",
     number-align: center,
@@ -18,29 +18,25 @@
     center,
     [
       #heading(outlined: false)[ 
-        #smallcaps("Information and Network Security")
+        #smallcaps(subject_name)
       ]
 
       #v(1cm)
 
-      #heading("Lab File (CO425)", outlined: false, bookmarked: false, depth: 2)
+      #heading(file_heading, outlined: false, bookmarked: false, depth: 2)
 
       #v(4cm)
 
-      #image("images/dtu_logo.png")
+      #image(logo)
       #v(1cm)
 
-      #text([*Department of Computer Science*], size: 18pt)
+      #text([*#department*], size: 18pt)
 
 
-      Delhi Technological University
+      #college_name
 
       #text(
-        [
-          (Formerly, Delhi College of Engineering)
-
-          Bawana Road, Delhi-110042
-        ],
+        college_address,
         size: 12pt,
       )
 
@@ -52,11 +48,11 @@
   #align(left)[
     *Submitted by*
 
-    Vishal Das
+    #student_name
     #v(0.5cm)
 
     *Submitted to*
 
-    INS Teacher
+    #teacher_name
   ]
 ]

@@ -1,3 +1,19 @@
+[info]
+student = "Vishal Das"
+roll_number = ""
+subject_name = "Information And Network Security"
+professor_name = "INS Professor"
+file_heading = "Lab File (CO425)"
+logo = "images/dtu_logo.png"
+
+[info.college]
+name = "Delhi Technological University"
+address= """
+(Formerly, Delhi College of Engineering)
+Bawana Road, Delhi-110042
+"""
+department = "Department of Computer Science"
+
 [experiment1]
 aim = "To implement Caesar cipher encryption."
 theory = """
