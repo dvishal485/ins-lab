@@ -1,15 +1,22 @@
 #import "assets/front_page.typ": front_page
 
-#front_page
-
 #set page(
   paper: "a4",
   number-align: center,
-  margin: 1.27cm,
+  margin: (left: 1.7cm, y: 1.27cm, right: (1.27cm * 2 - 1.27cm)),
   footer: text(size: 10pt)[
-    Vishal Das #h(1fr) #context counter(page).get().at(0)
+    Vishal Das
+    #h(1fr)
+    _#context counter(page).get().at(0)_
   ],
+  background: rect(
+    width: 100% - 1cm,
+    height: 100% - 0.75cm,
+    radius: 0.1cm,
+  ),
 )
+
+#front_page
 
 #set text(
   font: "STIX Two Text",
@@ -34,11 +41,11 @@
   set text(size: 11pt)
   let code = read(filename)
   line(length: 100%)
-    block(fill: luma(97%), width: 100%, radius: 0.20cm)[
-      #pad(x: 0.25cm, y: 0.25cm)[
-        #raw(code, block: true, lang: filename.split(".").at(-1))
-      ]
+  block(fill: luma(97%), width: 100%, radius: 0.20cm)[
+    #pad(x: 0.25cm, y: 0.25cm)[
+      #raw(code, block: true, lang: filename.split(".").at(-1))
     ]
+  ]
 }
 
 #let experiment(n, data) = [
