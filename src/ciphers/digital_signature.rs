@@ -1,6 +1,6 @@
-use std::marker::PhantomData;
-use crate::{EncryptionAlgorithm, Text};
 use super::sha::SHA;
+use crate::{EncryptionAlgorithm, Text};
+use std::marker::PhantomData;
 
 pub struct DigitalSignature<T: EncryptionAlgorithm, K: SHA> {
     cipher: T,
@@ -55,7 +55,9 @@ where
         let decrypted_data = self.cipher.decrypt(&Text::from(encrypted_data));
         let hash = self.cipher.decrypt(&Text::from(signature));
 
-        if hash != K::hash(&decrypted_data.clone().into()).into() {
+        let signed_hash = Text::new(dbg!(&K::hash(&decrypted_data.clone().into())));
+
+        if signed_hash.text.contains(&hash.text) {
             eprintln!("Signature verification failed!");
         } else {
             println!("Signature verification success!");
