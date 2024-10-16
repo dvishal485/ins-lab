@@ -1,7 +1,5 @@
 use std::marker::PhantomData;
-
 use crate::{EncryptionAlgorithm, Text};
-
 use super::sha::SHA;
 
 pub struct DigitalSignature<T: EncryptionAlgorithm, K: SHA> {

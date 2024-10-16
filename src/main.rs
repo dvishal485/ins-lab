@@ -6,7 +6,7 @@ pub use text::{EncryptionAlgorithm, Text};
 
 fn main() {
     examples::caesar_cipher::example();
-    examples::substitution_cipher::example();
+    examples::substituition_cipher::example();
     examples::playfair_cipher::example();
     examples::hill_cipher::example();
     examples::rsa::example();

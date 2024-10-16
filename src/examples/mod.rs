@@ -1,6 +1,6 @@
 pub mod caesar_cipher;
 pub mod playfair_cipher;
-pub mod substitution_cipher;
+pub mod substituition_cipher;
 pub mod hill_cipher;
 pub mod rsa;
 pub mod sha1;pub mod sha256;
