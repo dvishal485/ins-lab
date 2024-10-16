@@ -1,6 +1,7 @@
 pub mod ciphers;
 pub mod meth;
 pub mod text;
+pub mod misc;
 pub use text::{EncryptionAlgorithm, Text};
 
 #[macro_export]

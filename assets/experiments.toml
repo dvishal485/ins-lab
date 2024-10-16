@@ -71,8 +71,8 @@ The Diffie-Hellman key exchange is a method used to securely share cryptographic
 
 Diffie-Hellman is widely used in modern cryptography for secure key exchange, laying the foundation for secure communications.
 """
-program = []
-output = []
+program = ["examples/diffie_hellman.rs", "src/misc/diffie_hellman.rs"]
+output = [["Diffie-Hellman Key Example", "assets/images/diffie_hellman.png"]]
 conclusion = "Diffie-Hellman key exchange allows secure key generation over public channels."
 
 [experiment8]
