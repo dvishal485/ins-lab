@@ -34,7 +34,7 @@
   set text(size: 11pt)
   let code = read(filename)
   line(length: 100%)
-    block(fill: luma(97%), width: 100%)[
+    block(fill: luma(97%), width: 100%, radius: 0.20cm)[
       #pad(x: 0.25cm, y: 0.25cm)[
         #raw(code, block: true, lang: filename.split(".").at(-1))
       ]
