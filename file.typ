@@ -56,7 +56,7 @@
 
     #for fig in data.output [
       #figure(
-        image(fig.at(1), width: 20%),
+        image(fig.at(1), height: 25%, fit:"contain"),
         caption: fig.at(0),
         supplement: none,
       )

@@ -6,7 +6,7 @@ The Caesar cipher is one of the simplest encryption techniques, where each lette
 In this experiment, the encryption is done by shifting characters, and decryption is done by reversing the shift. This basic substitution cipher demonstrates the fundamentals of classical encryption techniques.
 """
 program = ["examples/caesar_cipher.rs", "src/ciphers/caesar_cipher.rs"]
-output = []
+output = [["Caesar Cipher Example", "assets/images/caesar_cipher.png"]]
 conclusion = "Caesar cipher demonstrates simple substitution encryption but is vulnerable to brute-force attacks."
 
 [experiment2]
@@ -17,7 +17,7 @@ Monoalphabetic ciphers rely on substituting each letter of the plaintext with an
 In this experiment, both encryption and decryption follow the same principle, substituting letters based on a predetermined mapping.
 """
 program = ["examples/substituition_cipher.rs", "src/ciphers/substituition_cipher.rs"]
-output = []
+output = [["Substituition Cipher Example", "assets/images/substituition_cipher.png"]]
 conclusion = "Monoalphabetic ciphers offer greater security but are still susceptible to frequency analysis."
 
 [experiment3]
@@ -28,7 +28,7 @@ The Playfair cipher is a digraph substitution cipher that encrypts pairs of lett
 Playfair cipher is more resistant to frequency analysis due to its digraph approach, making it more secure than simple monoalphabetic ciphers.
 """
 program = ["examples/playfair_cipher.rs", "src/ciphers/playfair_cipher.rs"]
-output = []
+output = [["Playfair Cipher Example", "assets/images/playfair_cipher.png"]]
 conclusion = "Playfair cipher provides increased security by encrypting letter pairs instead of single characters."
 
 [experiment4]
@@ -49,8 +49,8 @@ The Hill cipher is a polygraphic cipher based on linear algebra. It encrypts blo
 
 The Hill cipher provides strong encryption by mixing multiple characters together, but key management and matrix inversion can be challenging.
 """
-program = ["examples/substituition_cipher.rs", "src/ciphers/substituition_cipher.rs"]
-output = []
+program = ["examples/hill_cipher.rs", "src/ciphers/hill_cipher.rs"]
+output = [["Hill Cipher Example", "assets/images/hill_cipher.png"]]
 conclusion = "Hill cipher strengthens encryption by combining characters through matrix multiplication."
 
 [experiment6]
@@ -82,8 +82,8 @@ RSA is a widely used asymmetric encryption algorithm that relies on the mathemat
 
 RSA is commonly used for secure data transmission, digital signatures, and other cryptographic applications.
 """
-program = ["examples/substituition_cipher.rs", "src/ciphers/substituition_cipher.rs"]
-output = []
+program = ["examples/rsa.rs", "src/ciphers/rsa.rs"]
+output = [["RSA Example", "assets/images/rsa.png"]]
 conclusion = "RSA ensures secure communication through public-key encryption."
 
 [experiment9]
@@ -93,8 +93,8 @@ SHA-1 (Secure Hash Algorithm 1) is a cryptographic hash function that produces a
 
 This experiment demonstrates the generation of a cryptographic hash using SHA-1.
 """
-program = ["examples/sha1.rs", "src/ciphers/sha.rs"]
-output = []
+program = ["examples/sha1.rs", "examples/sha256.rs", "src/ciphers/sha.rs"]
+output = [["SHA1 Hashing Example", "assets/images/sha1.png"], ["SHA256 Hashing Example", "assets/images/sha256.png"]]
 conclusion = "SHA-1 hash generation is fundamental but now insecure due to vulnerabilities."
 
 [experiment10]
@@ -105,5 +105,5 @@ Digital signatures are a cryptographic method used to verify the authenticity an
 This experiment focuses on implementing a digital signature scheme, critical for secure electronic communications.
 """
 program = ["examples/digital_signature.rs", "src/ciphers/digital_signature.rs"]
-output = []
+output = [["Digital Signature Example", "assets/images/digital_signature.png"]]
 conclusion = "Digital signatures verify the authenticity and integrity of messages."
