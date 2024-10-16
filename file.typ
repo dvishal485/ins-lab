@@ -6,6 +6,9 @@
   paper: "a4",
   number-align: center,
   margin: 1.27cm,
+  footer: text(size: 10pt)[
+    Vishal Das #h(1fr) #context counter(page).get().at(0)
+  ],
 )
 
 #set text(
