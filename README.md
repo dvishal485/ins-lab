@@ -49,7 +49,7 @@ The lab file is generated using [assets/experiments.toml file](assets/experiment
 The PDF for lab file can be generated using the following command
 
 ```bash
-typst c file.typ --ppi 288 "INS Lab File.pdf" 
+typst c file.typ --ppi 288 "INS Lab File.pdf"
 ```
 
 This generates `INS Lab File.pdf` as output in the root directory.
