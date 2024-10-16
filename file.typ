@@ -1,6 +1,7 @@
 #import "assets/front_page.typ": front_page
 
 #front_page
+
 #set page(
   paper: "a4",
   number-align: center,
