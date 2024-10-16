@@ -1,4 +1,15 @@
-#let front_page(student_name: "John Doe", subject_name: "INS", teacher_name: "Professor", file_heading: "Lab File", logo: "image.png" , college_name : "College", college_address: "India", department: "Department of Computer Science") = [
+#let front_page(
+  student_name: "John Doe",
+  roll_number: "",
+  subject_name: "INS",
+  teacher_name: "Professor",
+  file_heading: "Lab File",
+  logo: "image.png",
+  college_name: "College",
+  college_address: "India",
+  department: "Department of Computer Science",
+  professor_designation: "Professor",
+) = [
   #set page(
     paper: "a4",
     number-align: center,
@@ -17,7 +28,7 @@
   #align(
     center,
     [
-      #heading(outlined: false)[ 
+      #heading(outlined: false)[
         #smallcaps(subject_name)
       ]
 
@@ -25,7 +36,7 @@
 
       #heading(file_heading, outlined: false, bookmarked: false, depth: 2)
 
-      #v(4cm)
+      #v(3.5cm)
 
       #image(logo)
       #v(1cm)
@@ -39,20 +50,25 @@
         college_address,
         size: 12pt,
       )
-
     ],
   )
 
-  #v(2cm)
-
-  #align(left)[
+  #v(2.5cm)
+  #columns(2)[
     *Submitted by*
 
     #student_name
-    #v(0.5cm)
 
-    *Submitted to*
+    #text(size: 12.5pt, [(#roll_number)])
 
-    #teacher_name
+    #colbreak(weak: false)
+
+    #pad(left: 3cm)[
+      *Submitted to*
+
+      #teacher_name
+
+      #text(size: 12.5pt, professor_designation)
+    ]
   ]
 ]

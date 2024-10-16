@@ -22,12 +22,14 @@
 #front_page(
   student_name: file_data.info.student,
   subject_name: file_data.info.subject_name,
-  teacher_name: file_data.info.professor_name, 
+  teacher_name: file_data.info.professor.name, 
   file_heading: file_data.info.file_heading, 
   logo: file_data.info.logo,
   college_name: file_data.info.college.name, 
   college_address: file_data.info.college.address,
-  department: file_data.info.college.department
+  department: file_data.info.college.department,
+  roll_number: file_data.info.roll_number,
+  professor_designation: "Assistant Professor"
 )
 
 #set text(

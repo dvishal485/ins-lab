@@ -2,9 +2,12 @@
 student = "Vishal Das"
 roll_number = ""
 subject_name = "Information And Network Security"
-professor_name = "INS Professor"
 file_heading = "Lab File (CO425)"
 logo = "images/dtu_logo.png"
+
+[info.professor]
+name = "Ms. Shweta Gupta"
+designation = "Assistant Professor"
 
 [info.college]
 name = "Delhi Technological University"
