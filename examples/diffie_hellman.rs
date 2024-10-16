@@ -1,4 +1,5 @@
-use ins_lab::{intro, misc::diffie_hellman::Client};
+use ins_lab::intro;
+use ins_lab::misc::diffie_hellman::Client;
 
 pub fn main() {
     intro!("Diffie-Hellman Key Exchange");
@@ -11,6 +12,7 @@ pub fn main() {
         PUBLIC_NUMBER_1, PUBLIC_NUMBER_2
     );
 
+    // decide private keys for each client
     let alice: Client<PUBLIC_NUMBER_1, PUBLIC_NUMBER_2> = Client::new(152983);
     let bob: Client<PUBLIC_NUMBER_1, PUBLIC_NUMBER_2> = Client::new(279923);
 
