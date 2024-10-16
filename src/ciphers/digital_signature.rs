@@ -55,7 +55,7 @@ where
         let decrypted_data = self.cipher.decrypt(&Text::from(encrypted_data));
         let hash = self.cipher.decrypt(&Text::from(signature));
 
-        let signed_hash = Text::new(dbg!(&K::hash(&decrypted_data.clone().into())));
+        let signed_hash = Text::new(&K::hash(&decrypted_data.clone().into()));
 
         if signed_hash.text.contains(&hash.text) {
             eprintln!("Signature verification failed!");
