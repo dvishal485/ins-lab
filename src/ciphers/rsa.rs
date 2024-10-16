@@ -1,5 +1,4 @@
 use crate::meth::{gcd, mod_pow};
-
 use crate::{EncryptionAlgorithm, Text};
 
 pub struct RSA {
@@ -19,7 +18,6 @@ impl RSA {
     pub fn new(ArgumentsRSA { p, q, e }: ArgumentsRSA) -> Self {
         let n = p * q;
         let phi = (p - 1) * (q - 1);
-
         assert!(gcd(e, phi) == 1, "e and phi(n) must be coprime");
 
         let d = Self::mod_inverse(e, phi);
@@ -43,14 +41,12 @@ impl EncryptionAlgorithm for RSA {
     fn encrypt(&self, plain_text: &Text) -> Text {
         let num = plain_text.number;
         let cipher_number = mod_pow(num, self.public_key, self.n);
-
         Text::from(cipher_number)
     }
 
     fn decrypt(&self, cipher_text: &Text) -> Text {
         let num = cipher_text.number;
         let plain_number = mod_pow(num, self.private_key, self.n);
-
         Text::from(plain_number)
     }
 }
