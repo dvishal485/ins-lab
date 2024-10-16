@@ -11,7 +11,7 @@ impl SHA for SHA1 {
     fn hash(text: &Text) -> String {
         let mut hasher = Sha1::new();
         hasher.input_str(text);
-        hasher.result_str().into()
+        hasher.result_str()
     }
 }
 
@@ -19,7 +19,7 @@ impl SHA for SHA256 {
     fn hash(text: &Text) -> String {
         let mut hasher = Sha256::new();
         hasher.input_str(text);
-        hasher.result_str().into()
+        hasher.result_str()
     }
 }
 
