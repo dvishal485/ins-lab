@@ -68,8 +68,8 @@ S-DES (Simplified DES) is a reduced version of the Data Encryption Standard (DES
 
 This experiment focuses on generating these subkeys, which are critical for the encryption process.
 """
-program = []
-output = []
+program = ["examples/s_des.rs", "src/misc/s_des/s_des.rs"]
+output = [["Simplified DES Key Generation Example", "assets/images/sdes.png"]]
 conclusion = "Subkey generation in S-DES is crucial for secure encryption in DES-like algorithms."
 
 [experiment7]

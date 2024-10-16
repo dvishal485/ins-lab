@@ -52,7 +52,7 @@ macro_rules! impl_from {
     };
 }
 
-impl_from!(i8, i16, i32, i64, u8, u16, u32, u64);
+impl_from!(i8, i16, i32, i64, u8, u16, u32, u64, usize, isize, u128, i128);
 
 impl Text {
     pub fn new(text: &str) -> Self {
