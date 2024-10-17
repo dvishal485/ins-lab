@@ -56,7 +56,6 @@ impl SDes {
 
         let (left, right) = p10.partition();
         println!("L-R Partitions: \t{left} {right}");
-        println!("L-R Partitions: \t{left} {right}");
 
         let left_shifted = left.circular_left_shift(1);
         let right_shifted = right.circular_left_shift(1);
