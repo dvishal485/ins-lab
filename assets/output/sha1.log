@@ -1,0 +1,8 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/sha1`
+--------------------------------------------------
+SHA1 Example
+--------------------------------------------------
+
+Text: HELLOCUTEPLANET
+Hash: 8b91eb8701795b2ada1089c9751f95fbffbe1a11

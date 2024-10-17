@@ -1,0 +1,8 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/sha256`
+--------------------------------------------------
+SHA256 Example
+--------------------------------------------------
+
+Text: HELLOCUTEPLANET
+Hash: 1ca07cd2d9e99bf21ecaae21acb61f6251f61141b736fde6f6616317e9b70814

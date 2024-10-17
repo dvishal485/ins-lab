@@ -1,0 +1,18 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/s_des`
+--------------------------------------------------
+Simplified DES Example
+--------------------------------------------------
+
+Permutation (10): 	1000001100
+L-R Partitions: 	10000 01100
+L-R Partitions: 	10000 01100
+Partitions Shifted: 	00001 11000
+Combined Partitions: 	0000111000
+Permutation (8): 	10100100	(KEY 1)
+Partitions Shifted: 	00100 00011
+Combined Partitions: 	0010000011
+Permutation (8): 	01000011	(KEY 2)
+--------------------------------------------------
+Simplified DES Key 1: 	10100100
+Simplified DES Key 2: 	01000011

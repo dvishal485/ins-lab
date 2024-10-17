@@ -1,4 +1,5 @@
 #import "assets/front_page.typ": front_page
+#import "assets/output.typ": draw_terminal
 
 #let file_data = toml("assets/experiments.toml")
 
@@ -80,11 +81,7 @@
     == Output
 
     #for fig in data.output [
-      #figure(
-        image(fig.at(1), height: 25%, fit: "contain"),
-        caption: fig.at(0),
-        supplement: none,
-      )
+      #draw_terminal(fig)
     ]
   ]
 

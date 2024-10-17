@@ -1,0 +1,10 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/substituition_cipher`
+--------------------------------------------------
+Substitution Cipher Example
+--------------------------------------------------
+
+Plain text: HELLOCUTEPLANET
+Cipher text: ITSSGEXZTHSQFTZ
+Decrypted text: HELLOCUTEPLANET
+

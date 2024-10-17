@@ -1,0 +1,11 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/digital_signature`
+--------------------------------------------------
+Digital Signature Example
+--------------------------------------------------
+
+Text: HELLOCUTEPLANET
+Signed with signature: AMMLPXBXDASQAECOHOONSOYBNJI
+Signature: GRNVPEWMXXFHGVT/AMMLPXBXDASQAECOHOONSOYBNJI
+Signature verification success!
+Decrypted text: HELLOCUTEPLANET

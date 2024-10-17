@@ -1,0 +1,21 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/diffie_hellman`
+--------------------------------------------------
+Diffie-Hellman Key Exchange Example
+--------------------------------------------------
+
+Decided public numbers: 1849, 91239
+
+Alice Client {
+    private_number: 152983,
+}
+Bob Client {
+    private_number: 279923,
+}
+--------------------------------------------------
+Alice's generated key: 1756
+Bob's generated key: 866
+--------------------------------------------------
+Alice's secret key: 178
+Bob's secret key: 178
+--------------------------------------------------

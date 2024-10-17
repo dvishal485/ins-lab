@@ -1,0 +1,15 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/rsa`
+--------------------------------------------------
+RSA Example
+--------------------------------------------------
+
+ArgumentsRSA { p: 317, q: 11, e: 17 }
+
+Public key: (3487, 17)
+Private key: (3487, 1673)
+
+Plain text: 88
+Cipher text: 2057
+Decrypted text: 88
+

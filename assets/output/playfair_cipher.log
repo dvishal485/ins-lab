@@ -1,0 +1,16 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/playfair_cipher`
+--------------------------------------------------
+Playfair Cipher Example
+--------------------------------------------------
+
+Key: NINJAKILL
+['N', 'I', 'A', 'K', 'L']
+['B', 'C', 'D', 'E', 'F']
+['G', 'H', 'M', 'O', 'P']
+['Q', 'R', 'S', 'T', 'U']
+['V', 'W', 'X', 'Y', 'Z']
+Plain text: HELLOCUTEPLANET
+Cipher text: OCAZKPFRYOUFKIOY
+Decrypted text: HELLOCUTEPLANET
+

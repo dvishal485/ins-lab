@@ -49,9 +49,10 @@ The lab file is generated using [assets/experiments.toml file](assets/experiment
 The PDF for lab file can be generated using the following command
 
 ```bash
+ls examples/ -1 | cut -d "." -f 1 | xargs -I {} sh -c 'cargo r -r --example {} > {}.log 2>&1'
 typst c file.typ --ppi 288 "INS Lab File.pdf"
 ```
 
-This generates `INS Lab File.pdf` as output in the root directory.
+This will run all the programs and store its output in a log file and then generate the pdf file `INS Lab File.pdf` as output in the root directory.
 
 ---
