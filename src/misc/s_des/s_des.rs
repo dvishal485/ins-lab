@@ -24,7 +24,7 @@ impl Bits<10> {
     pub fn partition(&self) -> (Bits<5>, Bits<5>) {
         let (l, r) = self.bits.split_at(5);
         let (l, r): (&[bool; 5], &[bool; 5]) = (l.try_into().unwrap(), r.try_into().unwrap());
-        (Bits::from(l), Bits::from(r))
+        (Bits::from(l.as_slice()), Bits::from(r.as_slice()))
     }
 }
 

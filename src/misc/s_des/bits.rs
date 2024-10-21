@@ -25,19 +25,22 @@ macro_rules! impl_from {
 
 impl_from!(u8, u16, u32, u64, u128, usize, i8, i16, i32, i64, i128, isize);
 
-impl<const N: usize, const K: usize> From<&[bool; K]> for Bits<N> {
-    fn from(value: &[bool; K]) -> Self {
-        let mut bits = Bits::new();
-        for i in 0..K {
-            bits.bits[i] = value[i];
-        }
-        bits
+impl<const N: usize> From<&[bool]> for Bits<N> {
+    fn from(value: &[bool]) -> Self {
+        assert!(
+            value.len() == N,
+            "Bits should be copied from same length slice"
+        );
+        let mut bits = [false; N];
+        bits.copy_from_slice(&value);
+
+        Bits { bits }
     }
 }
 
 impl<const N: usize, const K: usize> From<&Bits<K>> for Bits<N> {
     fn from(value: &Bits<K>) -> Self {
-        Bits::from(&value.bits)
+        Bits::from(value.bits.as_slice())
     }
 }
 
