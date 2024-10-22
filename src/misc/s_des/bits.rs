@@ -89,6 +89,23 @@ impl<const N: usize> Bits<N> {
         num.bits.rotate_right(shift);
         num
     }
+    pub fn partition<const K: usize, const L: usize>(&self) -> (Bits<K>, Bits<L>) {
+        assert!(
+            K + L == N,
+            "Partition sizes should sum up to original Bits size"
+        );
+        let (l, r) = self.bits.split_at(K);
+        (Bits::from(l), Bits::from(r))
+    }
+    pub fn combine<const K: usize, const L: usize>(&self, rhs: &Bits<K>) -> Bits<L> {
+        assert!(
+            K + N == L,
+            "Combining sizes should sum up to the resulting Bits size"
+        );
+        let mut num = Bits::from(self);
+        (&mut num.bits[N..]).copy_from_slice(&rhs.bits);
+        num
+    }
 }
 
 impl<const N: usize> Shl<usize> for Bits<N> {

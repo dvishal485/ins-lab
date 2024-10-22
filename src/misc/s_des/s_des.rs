@@ -5,9 +5,9 @@ impl Bits<10> {
         let mut num = [false; 10];
         const SHIFTERS: [usize; 10] = [3, 5, 2, 7, 4, 10, 1, 9, 8, 6];
 
-        for i in 0..10 {
-            num[i] = self.bits[SHIFTERS[i] - 1];
-        }
+        num.iter_mut()
+            .zip(SHIFTERS.into_iter())
+            .for_each(|(bit, shift)| *bit = self.bits[shift - 1]);
 
         Bits { bits: num }
     }
@@ -15,26 +15,11 @@ impl Bits<10> {
         let mut num = [false; 8];
         const SHIFTERS: [usize; 8] = [6, 3, 7, 4, 8, 5, 10, 9];
 
-        for i in 0..8 {
-            num[i] = self.bits[SHIFTERS[i] - 1];
-        }
+        num.iter_mut()
+            .zip(SHIFTERS.into_iter())
+            .for_each(|(bit, shift)| *bit = self.bits[shift - 1]);
 
         Bits { bits: num }
-    }
-    pub fn partition(&self) -> (Bits<5>, Bits<5>) {
-        let (l, r) = self.bits.split_at(5);
-        let (l, r): (&[bool; 5], &[bool; 5]) = (l.try_into().unwrap(), r.try_into().unwrap());
-        (Bits::from(l.as_slice()), Bits::from(r.as_slice()))
-    }
-}
-
-impl Bits<5> {
-    pub fn combine(&self, rhs: &Bits<5>) -> Bits<10> {
-        let mut num = Bits::from(self);
-        for i in 5..10 {
-            num.bits[i] = rhs.bits[i - 5];
-        }
-        num
     }
 }
 
@@ -54,7 +39,7 @@ impl SDes {
         let p10 = self.key.p10();
         println!("Permutation (10): \t{}", p10);
 
-        let (left, right) = p10.partition();
+        let (left, right) = p10.partition::<5, 5>();
         println!("L-R Partitions: \t{left} {right}");
 
         let left_shifted = left.circular_left_shift(1);
