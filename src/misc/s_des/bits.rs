@@ -28,11 +28,11 @@ impl_from!(u8, u16, u32, u64, u128, usize, i8, i16, i32, i64, i128, isize);
 impl<const N: usize> From<&[bool]> for Bits<N> {
     fn from(value: &[bool]) -> Self {
         assert!(
-            value.len() == N,
+            value.len() <= N,
             "Bits should be copied from same length slice"
         );
         let mut bits = [false; N];
-        bits.copy_from_slice(&value);
+        (&mut bits[..value.len()]).copy_from_slice(&value);
 
         Bits { bits }
     }
