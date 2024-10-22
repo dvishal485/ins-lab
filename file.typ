@@ -3,6 +3,8 @@
 
 #let file_data = toml("assets/experiments.toml")
 
+#let exp_list = file_data.keys().filter(n => n.starts-with("experiment")).map(n => int(n.split("experiment").at(1))).sorted().map(x => file_data.at("experiment" + str(x)))
+
 #set page(
   paper: "a4",
   number-align: center,
@@ -39,19 +41,37 @@
   spacing: 3pt,
   hyphenate: false,
 )
+#context {
+  table(
+    columns: (0.9fr, 3fr, 1fr, 1fr, 1fr),
+    inset: 15pt,
+    align: horizon,
+    table.header(
+     [*S. No.*], [*Aim*], [*Page No.*], [*Date*], [*Sign*],
+    ),
+    ..for (i, (exp, x)) in exp_list.zip(query(heading.where(outlined: true, level: 1))).enumerate() {
+        let page_num = x.location().page();
+        let date = ""; // datetime.today().display();
+        
+        let outline_data = ([#(i + 1)], par(exp.aim, leading: 1em), align(center)[#page_num], date, "");
 
-
-#show outline.entry.where(level: 1): it => {
-  v(12pt, weak: true)
-  strong(it)
+        outline_data.map(z => link(x.location(), z))
+      }
+    
+  )
 }
 
-#outline(indent: 0.6cm)
+// #show outline.entry.where(level: 1): it => {
+//   v(12pt, weak: true)
+//   strong(it)
+// }
+
+// #outline(indent: 0.6cm)
 
 #set heading(numbering: none)
 
 #let codeblock(filename) = {
-  set text(size: 11pt)
+  set text(size: 10.2pt)
   let code = read(filename)
   line(length: 100%)
   block(fill: luma(97%), width: 100%, radius: 0.20cm)[
@@ -92,8 +112,6 @@
   ]
 ]
 
-#let exp_list = file_data.keys().filter(n => n.starts-with("experiment")).map(n => int(n.split("experiment").at(1)))
-
 #for (i, data) in exp_list.enumerate() {
-  [#experiment(i + 1, file_data.at("experiment" + str(data)))]
+  [#experiment(i + 1, data)]
 }
