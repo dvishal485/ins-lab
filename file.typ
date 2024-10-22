@@ -41,7 +41,10 @@
   spacing: 3pt,
   hyphenate: false,
 )
+
 #context {
+  align(center, heading("Table of Contents"))
+  v(0.5cm)
   table(
     columns: (0.9fr, 3fr, 1fr, 1fr, 1fr),
     inset: 15pt,
