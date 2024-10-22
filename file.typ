@@ -43,7 +43,7 @@
 )
 
 #context {
-  align(center, heading("Table of Contents"))
+  align(center, heading("Table of Contents", outlined: false, bookmarked: true))
   v(0.5cm)
   table(
     columns: (0.9fr, 3fr, 1fr, 1fr, 1fr),
