@@ -7,7 +7,6 @@ logo = "images/dtu_logo.png"
 
 [info.professor]
 name = "Ms. Shweta Gupta"
-designation = "Assistant Professor"
 
 [info.college]
 name = "Delhi Technological University"
